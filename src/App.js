@@ -74,6 +74,7 @@ function App() {
       <Button
         type="primary"
         onClick={createMessage}
+        style={{display: 'flex', alignSelf: 'center', marginBottom: 20}}
       >
         Enter Message
       </Button>
@@ -88,12 +89,12 @@ function App() {
               <div style={styles.messageTitle}>{message.title}</div>
               <div style={styles.messageEntry}>{message.entry}</div>
             </div>
-            <Button
+            {/* <Button
               type="default"
               onClick={() => deleteMessage(message.id)}
             >
               Delete
-            </Button>
+            </Button> */}
           </div>
         ))
       }
@@ -106,9 +107,10 @@ export default App;
 const styles = {
   secretMessageContainer: {
     display: 'flex',
+    flex: 1,
     flexDirection: 'column',
-    alignItems: 'center',
-    // width: '100%',
+    alignItems: 'flex-start',
+    width: '100%',
     padding: 40,
     // maxWidth: 900,
   },
@@ -123,6 +125,8 @@ const styles = {
   },
   messageContainer: {
     display: 'flex',
+    flex: 1,
+    width: '100%',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -138,14 +142,17 @@ const styles = {
     borderRadius: 5,
   },
   messageTitle: {
+    display: 'flex',
     padding: 5,
     margin: 2,
-    borderStyle: 'solid',
-    borderWidth: 2,
-    borderRadius: 5,
+    borderBottom: 'medium solid #000000'
+    // borderStyle: 'solid',
+    // borderWidth: 2,
+    // borderRadius: 5,
   },
   messageEntry: {
     padding: 5,
     margin: 2,
+    marginTop: 10,
   }
 }
