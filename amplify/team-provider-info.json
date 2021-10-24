@@ -1,0 +1,15 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-secretmessages-dev-95856-authRole",
+      "UnauthRoleArn": "arn:aws:iam::617623427215:role/amplify-secretmessages-dev-95856-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::617623427215:role/amplify-secretmessages-dev-95856-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-secretmessages-dev-95856-deployment",
+      "UnauthRoleName": "amplify-secretmessages-dev-95856-unauthRole",
+      "StackName": "amplify-secretmessages-dev-95856",
+      "StackId": "arn:aws:cloudformation:us-east-1:617623427215:stack/amplify-secretmessages-dev-95856/89778250-34d2-11ec-9ac2-12e17959c1bd",
+      "AmplifyAppId": "dwry1a6hus2k6"
+    }
+  }
+}
