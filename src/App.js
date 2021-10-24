@@ -34,15 +34,12 @@ function App() {
 
   // Creates new message from form inputs and adds the new message to DataStore
   async function createMessage() {
-    console.log('Form State: ', formState)
-    console.log('Messages: ', messages[0].title)
     if (!formState.entry) return // Exit function if Entry field is empty
     await DataStore.save(new Message({ id: uuid(), title: formState.title, entry: formState.entry, createdAt: moment().format('L - h:mm:ss a')})) // Save contents of form as a message in DataStore
     updateFormState(initialState) // Reset Form to inital state
   }
 
   async function deleteMessage(id) {
-    console.log('ID to delete: ', id)
     await DataStore.delete(Message, message => message.id("eq", id))
     fetchMessages()
   }
@@ -86,7 +83,7 @@ function App() {
               key={message.id}
               style={{...styles.messageStyle, backgroundColor: 'black'}}
             >
-              <div style={{paddingBottom: 10, color: 'white'}}>{message.createdAt.toUpperCase()}</div>
+              <div style={{paddingBottom: 10, color: 'white', fontSize: 15}}>{message.createdAt.toUpperCase()}</div>
               <div style={{...styles.messageTitle, color: 'white', borderColor: 'white'}}>{message.title}</div>
               <div style={{...styles.messageEntry, color: 'white'}}>{message.entry}</div>
             </div>
@@ -106,7 +103,7 @@ function App() {
               key={message.id}
               style={styles.messageStyle}
             >
-              <div style={{paddingBottom: 10}}>{message.createdAt.toUpperCase()}</div>
+              <div style={{paddingBottom: 10, fontSize: 15}}>{message.createdAt.toUpperCase()}</div>
               <div style={styles.messageTitle}>{message.title}</div>
               <div style={styles.messageEntry}>{message.entry}</div>
             </div>
@@ -174,6 +171,7 @@ const styles = {
     display: 'flex',
     padding: 5,
     margin: 2,
+    fontSize: 20,
     borderBottom: 'medium solid #000000'
     // borderStyle: 'solid',
     // borderWidth: 2,
@@ -183,5 +181,6 @@ const styles = {
     padding: 5,
     margin: 2,
     marginTop: 10,
+    fontSize: 20,
   }
 }
