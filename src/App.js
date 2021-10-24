@@ -55,7 +55,7 @@ function App() {
   return (
     <div style={styles.secretMessageContainer}>
       <div style={styles.secretMessageHeader}>anonymess</div>
-      <div style={styles.secretMessageDescription}>real time anonymess message board</div>
+      <div style={styles.secretMessageDescription}>real time anonymous message board</div>
       <TextArea 
         onChange={handleChange}
         name="title"
