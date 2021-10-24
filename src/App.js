@@ -54,7 +54,8 @@ function App() {
 
   return (
     <div style={styles.secretMessageContainer}>
-      <h1 style={styles.secretMessageHeader}>Anonymous Message Board</h1>
+      <div style={styles.secretMessageHeader}>anonymess</div>
+      <div style={styles.secretMessageDescription}>real time anonymess message board</div>
       <TextArea 
         onChange={handleChange}
         name="title"
@@ -127,20 +128,26 @@ export default App;
 const styles = {
   secretMessageContainer: {
     display: 'flex',
-    flex: 1,
     flexDirection: 'column',
-    alignItems: 'flex-start',
     width: '100%',
-    padding: 40,
-    // maxWidth: 900,
+    paddingLeft: 40,
+    paddingRight: 40,
+    paddingBottom: 40,
   },
   secretMessageHeader: {
     display: 'flex',
     alignSelf: 'center',
     textAlign: 'center',
+    fontFamily: 'Righteous',
     // backgroundColor: 'green',
     fontWeight: 'normal',
-    fontSize: 40
+    fontSize: 60
+  },
+  secretMessageDescription: {
+    alignSelf: 'center', 
+    textAlign: 'center', 
+    marginBottom: 10,
+    fontSize: 15,
   },
   input: {
     marginBottom: 10
