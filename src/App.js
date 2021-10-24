@@ -147,7 +147,7 @@ const styles = {
     alignSelf: 'center', 
     textAlign: 'center', 
     marginBottom: 10,
-    fontSize: 15,
+    fontSize: 25,
   },
   input: {
     marginBottom: 10
