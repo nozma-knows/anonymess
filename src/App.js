@@ -16,7 +16,6 @@ function App() {
   const [formState, updateFormState] = useState(initialState)
   const [messages, updateMessages] = useState([])
 
-
   // Calls fetchMessages on first render. Subscribes to changes in DataStore and updates messages Hook accordingly
   useEffect(() => {
     fetchMessages()
@@ -36,6 +35,7 @@ function App() {
   // Creates new message from form inputs and adds the new message to DataStore
   async function createMessage() {
     console.log('Form State: ', formState)
+    console.log('Messages: ', messages[0].title)
     if (!formState.entry) return // Exit function if Entry field is empty
     await DataStore.save(new Message({ id: uuid(), title: formState.title, entry: formState.entry, createdAt: moment().format('L - h:mm:ss a')})) // Save contents of form as a message in DataStore
     updateFormState(initialState) // Reset Form to inital state
@@ -79,7 +79,27 @@ function App() {
         Enter Message
       </Button>
       {
-        [...messages].reverse().map(message => (
+        [...messages.slice(0,1)].map(message => (
+          <div style={styles.messageContainer}>
+            <div
+              key={message.id}
+              style={{...styles.messageStyle, backgroundColor: 'black'}}
+            >
+              <div style={{paddingBottom: 10, color: 'white'}}>{message.createdAt.toUpperCase()}</div>
+              <div style={{...styles.messageTitle, color: 'white', borderColor: 'white'}}>{message.title}</div>
+              <div style={{...styles.messageEntry, color: 'white'}}>{message.entry}</div>
+            </div>
+            {/* <Button
+              type="default"
+              onClick={() => deleteMessage(message.id)}
+            >
+              Delete
+            </Button> */}
+          </div>
+        ))
+      }
+      {
+        [...messages.slice(1)].reverse().map(message => (
           <div style={styles.messageContainer}>
             <div
               key={message.id}
@@ -116,6 +136,8 @@ const styles = {
   },
   secretMessageHeader: {
     display: 'flex',
+    alignSelf: 'center',
+    textAlign: 'center',
     // backgroundColor: 'green',
     fontWeight: 'normal',
     fontSize: 40
@@ -132,7 +154,7 @@ const styles = {
   },
   messageStyle: {
     display: 'flex',
-    flex: 0.9,
+    flex: 1,
     flexDirection: 'column',
     // backgroundColor: 'green',
     padding: 10,
