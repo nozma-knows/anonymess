@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button } from 'antd';
+import { Input, Button, message } from 'antd';
 import { DataStore } from '@aws-amplify/datastore';
 import { Message } from './models';
 import {v4 as uuid} from 'uuid';
@@ -25,12 +25,11 @@ function App() {
     return () => subscription.unsubscribe()
   }, [])
 
-
   // Updates messages Hook with contents of DataStore
   async function fetchMessages() {
     const messages = await DataStore.query(Message)
-    console.log('Messages: ', messages)
-    updateMessages(messages)
+    const sortedMessages = [...messages.sort((a, b) => moment(b.createdAt, 'L - h:mm:ss a').unix() - moment(a.createdAt, 'L - h:mm:ss a').unix())]
+    updateMessages(sortedMessages)
   }
 
   // Creates new message from form inputs and adds the new message to DataStore
