@@ -29,6 +29,7 @@ function App() {
   // Updates messages Hook with contents of DataStore
   async function fetchMessages() {
     const messages = await DataStore.query(Message)
+    console.log('Messages: ', messages)
     updateMessages(messages)
   }
 
@@ -77,7 +78,7 @@ function App() {
         Enter Message
       </Button>
       {
-        [...messages.slice(0,1)].map(message => (
+        [...messages.filter(todo => todo.id === "82704800-dbdb-4246-85e0-96682f9bafaa")].map(message => (
           <div style={styles.messageContainer}>
             <div
               key={message.id}
@@ -97,7 +98,7 @@ function App() {
         ))
       }
       {
-        [...messages.slice(1)].reverse().map(message => (
+        [...messages.filter(todo => todo.id !== "82704800-dbdb-4246-85e0-96682f9bafaa")].map(message => (
           <div style={styles.messageContainer}>
             <div
               key={message.id}
