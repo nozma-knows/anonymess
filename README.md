@@ -2,7 +2,7 @@
 
 # Descrtiption
 
-Anonymess is a real-time anonymous message board. Users can enter a message (title and entry), that message is saved to the cloud and rendered to the website in real time. Anonymess can be accessed at anonymess.app and the code for the project can be found on my Github at https://github.com/nozma-knows/anonymess
+Anonymess is a real-time anonymous message board. Users can enter a message (title and entry), that message is saved to the cloud and rendered to the website in real time.
 
 ## Front-End
 
