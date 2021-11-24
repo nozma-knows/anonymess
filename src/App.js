@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Input, Button, message } from 'antd';
+import { TextArea, Button } from 'antd';
 import { DataStore } from '@aws-amplify/datastore';
 import { Message } from './models';
 import {v4 as uuid} from 'uuid';
 import moment from 'moment';
 
-const { TextArea } = Input
+// const { TextArea } = Input
 const initialState = {
   title: '',
   entry: '',
